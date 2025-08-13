@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { adminRoutes } from "./routes";
 import Login from "../pages/Login";
 import AdminLayout from "../layout/layout";
+import NotFound from "../pages/Notfound";
 
 const renderRouteTree = (routes) =>
   routes.map(({ path, element, children }) => (
@@ -18,6 +19,7 @@ export default function Router() {
         <Route path="/" element={<Login />} />
         <Route path="/*" element={<AdminLayout />}>
           {renderRouteTree(adminRoutes)}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>

@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { adminRoutes } from "./routes";
 import AdminLayout from "../layout/layout";
+import NotFound from "../pages/Notfound";
 
 const renderRouteTree = (routes) =>
   routes.map(({ path, element, children }) => (
@@ -16,6 +17,7 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<AdminLayout />}>
           {renderRouteTree(adminRoutes)}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>
